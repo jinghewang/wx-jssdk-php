@@ -1,8 +1,7 @@
 <?php
-
-
-
-
+require_once "jssdk.php";
+$jssdk = new JSSDK("111", "222");
+$signPackage = $jssdk->GetSignPackage();
 ?>
 <!DOCTYPE html>
 <html>
@@ -60,6 +59,8 @@
       <h3 id="menu-voice">音频接口</h3>
       <span class="desc">开始录音接口</span>
       <button class="btn btn_primary" id="startRecord">startRecord</button>
+      <span class="desc">智能语音点餐，按住语音点餐</span>
+      <button class="btn btn_primary" id="startRecord3">--智能语音点餐--</button>
       <span class="desc">停止录音接口</span>
       <button class="btn btn_primary" id="stopRecord">stopRecord</button>
       <span class="desc">播放语音接口</span>
@@ -127,6 +128,7 @@
   </div>
 </body>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="//cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
 <script>
   /*
    * 注意：

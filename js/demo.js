@@ -183,6 +183,50 @@ wx.ready(function () {
     });
   };
 
+    // 4.2 开始录音
+    $('#startRecord3').on('touchstart', function(event){
+        event.preventDefault();
+        console.info('touchstart');
+
+        wx.startRecord({
+            cancel: function () {
+                alert('用户拒绝授权录音');
+            }
+        });
+    });
+
+    $('#startRecord3').on('touchend', function(event){
+        event.preventDefault();
+        console.info('touchend');
+        wx.stopRecord({
+            success: function (res) {
+                voice.localId = res.localId;
+
+                //识别音频
+                if (voice.localId == '') {
+                    alert('请先使用 startRecord 接口录制一段声音');
+                    return;
+                }
+                wx.translateVoice({
+                    localId: voice.localId,
+                    complete: function (res) {
+                        if (res.hasOwnProperty('translateResult')) {
+                            alert('识别结果：' + res.translateResult);
+                        } else {
+                            alert('无法识别');
+                        }
+                    }
+                });
+            },
+            fail: function (res) {
+                alert(JSON.stringify(res));
+            }
+        });
+    });
+
+
+
+
   // 4.3 停止录音
   document.querySelector('#stopRecord').onclick = function () {
     wx.stopRecord({
