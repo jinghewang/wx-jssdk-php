@@ -1,0 +1,1 @@
+sudo rm -rf dict/dict.utf8_2.xdb && sudo  php make_xdb_file.php dict/dict.utf8_2.xdb dict2.utf8.txt
