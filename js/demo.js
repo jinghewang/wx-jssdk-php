@@ -155,6 +155,7 @@ wx.ready(function () {
     localId: '',
     serverId: ''
   };
+
   // 3.1 识别音频并返回识别结果
   document.querySelector('#translateVoice').onclick = function () {
     if (voice.localId == '') {
@@ -183,12 +184,19 @@ wx.ready(function () {
     });
   };
 
+    function showMessage(v) {
+        $('#startRecord3').text(v);
+    }
+
     // 4.2 开始录音
     $('#startRecord3').on('touchstart', function(event){
         event.preventDefault();
         console.info('touchstart');
 
         wx.startRecord({
+            success: function(){
+                showMessage('正在录音中...');
+            },
             cancel: function () {
                 alert('用户拒绝授权录音');
             }
@@ -201,6 +209,8 @@ wx.ready(function () {
         wx.stopRecord({
             success: function (res) {
                 voice.localId = res.localId;
+
+                showMessage('智能语音点餐');
 
                 //识别音频
                 if (voice.localId == '') {
