@@ -41,5 +41,9 @@ APPSECRET|安全码|String(32)|签约商户唯一的安全码|Y
 
 4.智能语音点餐和微信闪电开票
 
+**智能语言点餐**使用了分词处理，请注意。
+
+**微信闪电开票**使用的H5形式的，官方也提供其它形式的。
+
 参见：
 https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1496554912_vfWU0
