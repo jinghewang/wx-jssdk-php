@@ -40,3 +40,5 @@ APPID|应用ID|String(35)|签约商户的应用ID号|Y
 APPSECRET|安全码|String(32)|签约商户唯一的安全码|Y
 
 4.智能语音点餐和微信闪电开票
+参见
+ https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1496554912_vfWU0
