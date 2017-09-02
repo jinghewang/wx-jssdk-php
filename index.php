@@ -60,8 +60,6 @@ $signPackage = $jssdk->GetSignPackage();
       <h3 id="menu-voice">音频接口</h3>
       <span class="desc">开始录音接口</span>
       <button class="btn btn_primary" id="startRecord">startRecord</button>
-      <span class="desc">智能语音点餐，按住语音点餐</span>
-      <button class="btn btn_primary" id="startRecord3">智能语音点餐</button>
       <span class="desc">停止录音接口</span>
       <button class="btn btn_primary" id="stopRecord">stopRecord</button>
       <span class="desc">播放语音接口</span>
@@ -126,9 +124,12 @@ $signPackage = $jssdk->GetSignPackage();
       <span class="desc">发起一个微信支付请求</span>
       <button class="btn btn_primary" id="chooseWXPay">chooseWXPay</button>
 
-        <h3 id="menu-pay">闪电开票</h3>
-        <span class="desc">闪电开票</span>
-        <button class="btn btn_primary" id="chooseInvoiceTitle">chooseWXPay</button>
+      <h3 id="menu-pay">额外添加接口</h3>
+      <span class="desc">智能语音点餐，按住语音点餐</span>
+      <button class="btn btn_primary" id="startRecord3">智能语音点餐</button>
+
+      <span class="desc">闪电开票</span>
+      <button class="btn btn_primary" id="chooseInvoiceTitle">chooseWXPay</button>
     </div>
   </div>
 </body>
@@ -197,21 +198,11 @@ $signPackage = $jssdk->GetSignPackage();
   wx.ready(function () {
     // 在这里调用 API
 
-      // 8.4 批量显示菜单项
-      document.querySelector('#chooseInvoiceTitle').onclick = function () {
-          wx.invoke('chooseInvoiceTitle', {
-              "scene":"1"
-          }, function(res) {
-              //这里是回调函数
-              console.info(res);
-              alert(JSON.stringify(res));
-          });
-      };
-
   });
 
 
 </script>
 <script src="js/zepto.min.js"></script>
 <script src="js/demo.js"> </script>
+<script src="js/demo_other.js"> </script>
 </html>
