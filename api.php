@@ -9,7 +9,6 @@
 header("Content-type: application/json");
 
 
-
 $result = array(
     'status' => 200,
     'params' => [],
@@ -27,7 +26,7 @@ else{
     $so = scws_new();
     $so->set_charset('utf8');
     // 这里没有调用 set_dict 和 set_rule 系统会自动试调用 ini 中指定路径下的词典和规则文件
-    $so->set_dict('/usr/local/scws/etc/dict.utf8_2.xdb');
+    $so->set_dict('/usr/local/scws/etc/dict.utf8.xdb');
     $so->set_rule('/usr/local/scws/etc/rules.utf8.ini');
     //$so->set_ignore(true);//设定分词返回结果时是否去除一些特殊的标点符号之类。
     //$so->set_duality(true);//设定是否将闲散文字自动以二字分词法聚合
@@ -51,32 +50,3 @@ else{
 }
 
 echo json_encode($result);
-
-
-
-die;
-
-
-
-$url = "http://www.xunsearch.com/scws/api.php";
-$post_data = array("data"        => "红烧带鱼来一份",
-                   "respond"     => "json",
-                   'charset'     => 'utf8',
-                   'ignore'      => 'no',
-                   'duality'     => 'no',
-                   'traditional' => 'no',
-                   'multi'       => 3);
-$ch = curl_init();
-
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-// post数据
-curl_setopt($ch, CURLOPT_POST, 1);
-// post的变量
-curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
-
-$output = curl_exec($ch);
-curl_close($ch);
-
-//打印获得的数据
-print_r($output);
