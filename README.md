@@ -1,5 +1,5 @@
 # wx-jssdk-php
-微信 jssdk 测试 for php
+微信 jssdk Demo for PHP
 # 重要说明
 
 ## 来源： 微信JS-SDK说明文档
