@@ -129,7 +129,7 @@ $signPackage = $jssdk->GetSignPackage();
       <button class="btn btn_primary" id="startRecord3">智能语音点餐</button>
 
       <span class="desc">闪电开票</span>
-      <button class="btn btn_primary" id="chooseInvoiceTitle">chooseWXPay</button>
+      <button class="btn btn_primary" id="chooseInvoiceTitle">选择发票抬头信息</button>
     </div>
   </div>
 </body>
